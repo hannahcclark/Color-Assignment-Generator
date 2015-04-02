@@ -1,8 +1,8 @@
 {
-  "name": "colorassignmentgenerator",
+  "name": "color-assignment-generator",
   "version": "0.1.0",
   "description": "Node.js module that will generate vibrant, unique, and visibly different (as much as can reasonably be expected based on number of colors generated) RGB colors for as long as possible",
-  "main": "colorassignmentgen.js",
+  "main": "index.js",
   "dependencies": {
     "tinycolor2": "^1.1.2"
   },

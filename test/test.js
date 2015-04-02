@@ -1,6 +1,6 @@
 var assert = require('chai').assert;
 var expect = require('chai').expect;
-var colgen = require('../colorassignmentgen');
+var colgen = require('../index');
 
 
 var initial = colgen.getSavedValues()
