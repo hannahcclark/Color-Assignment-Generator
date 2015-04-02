@@ -1,6 +1,6 @@
 {
   "name": "colorassignmentgenerator",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Node.js module that will generate vibrant, unique, and visibly different (as much as can reasonably be expected based on number of colors generated) RGB colors for as long as possible",
   "main": "colorassignmentgen.js",
   "dependencies": {
@@ -11,14 +11,17 @@
     "mocha": "^2.2.1"
     },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "make test"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/hannahcclark/Color-Assignment-Generator.git"
   },
   "author": "Hannah Clark <hannah_clark@mac.com> (http://hannahcclark.github.io)",
-  "license": "MIT",
+  "licenses": {
+      "type": "MIT",
+      "url": "https://github.com/hannahcclark/Color-Assignment-Generator/blob/master/LICENSE"
+  },
   "bugs": {
     "url": "https://github.com/hannahcclark/Color-Assignment-Generator/issues"
   },
