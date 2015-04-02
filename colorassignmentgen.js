@@ -13,6 +13,15 @@ var color = 0;
 var split = nextColorOffset;
 var offset = 0;
 
+exports.getSavedValues = function () {
+	return {'color': color, 'offset': offset, 'split': split, 'minSplit':minSplit}
+}
+exports.setSavedValues = function (dict) {
+	color = dict.color;
+	offset = dict.offset;
+	split = dict.split;
+	minSplit = dict.minSplit;
+}
 exports.getColor = function() {
 	var H = color + offset;
 	genColor = tinycolor("hsv(" + H + ", 100%, 100%)").toRgb();
