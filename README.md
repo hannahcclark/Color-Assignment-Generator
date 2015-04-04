@@ -2,7 +2,7 @@
 Node.js module that will generate vibrant, unique, and visibly different (as much as can reasonably be expected based on number of colors generated) RGB colors for as long as possible
 
 ##How to Get It
-Run ```npm install colorassignmentgenerator```
+Run ```npm install color-assignment-generator```
 
 Include the following in your file:
 <br>```var colorGen = require('color-assignment-generator')```
