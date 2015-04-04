@@ -5,7 +5,7 @@ Node.js module that will generate vibrant, unique, and visibly different (as muc
 Run ```npm install colorassignmentgenerator```
 
 Include the following in your file:
-<br>```var colorGen = require('colorassignmentgenerator')```
+<br>```var colorGen = require('color-assignment-generator')```
 
 ##How to Use It
 To get new RGB color use the `getColor()` method. This will return a dictionary with keys `r`, `g`, and `b`, whose values are the corresponding RGB values.
