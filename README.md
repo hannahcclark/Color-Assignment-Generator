@@ -8,7 +8,7 @@ Include the following in your file:
 <br>```var colorGen = require('color-assignment-generator')```
 
 ##How to Use It
-To get new RGB color use the `getColor()` method. This will return a dictionary with keys `r`, `g`, and `b`, whose values are the corresponding RGB values.
+To get new RGB color use the `getColor()` method. This will return an object with keys `r`, `g`, and `b`, whose values are the corresponding RGB values.
 
 If you are worried about loosing your place in color assignment if/when your application halts running, call the `getSavedValues()` method. This method returns a dictionary that you may save in a persistant store. 
 
