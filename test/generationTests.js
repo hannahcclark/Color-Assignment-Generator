@@ -24,9 +24,8 @@ module.exports = {
 
 	getColor_colorMaxHit_changesOffsetandSplitResetsColor: function(test) {
 		var initial = this.colgen.getSavedValues();
-		for (var i = 0; i < 12; i++) { // 12 chosen to max colors causing settings wraparound
-			this.colgen.getColor();
-		}
+		this.colgen.setSavedValues({'color': 330, 'offset': 0, 'split': 30, 'minSplit':3})
+		this.colgen.getColor();
 		var resulting = this.colgen.getSavedValues();
 		test.equal(initial['split']/2, resulting['offset'], 
 			'The offset should adjust to reflect already assigned colors')
@@ -38,6 +37,8 @@ module.exports = {
 			'The color should return to inital base color')
 		test.done();
 	},
+
+	
 
 	getColor_multipleWraparounds_returnDifferentColors: function(test) {
 		var colors = [];
