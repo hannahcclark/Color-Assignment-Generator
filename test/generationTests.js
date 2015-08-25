@@ -3,7 +3,6 @@
 module.exports = {
 	setUp: function(callback) {
 		this.colgen = require('../index');
-		//Ensure starting with default settings
 		this.colgen.setSavedValues({'color': 0, 'offset': 0, 'split': 30, 'minSplit':3}); //Default settings
 		callback();
 	},
@@ -29,9 +28,9 @@ module.exports = {
 			this.colgen.getColor();
 		}
 		var resulting = this.colgen.getSavedValues();
-		test.notEqual(initial['offset'], resulting['offset'], 
+		test.equal(initial['split']/2, resulting['offset'], 
 			'The offset should adjust to reflect already assigned colors')
-		test.notEqual(initial['split'], resulting['split'], 
+		test.equal(initial['split']/2, resulting['split'], 
 			'The split should be reduced')
 		test.equal(initial['minSplit'], resulting['minSplit'], 
 			'The minimum split should not be affected')
@@ -59,4 +58,4 @@ module.exports = {
 		callback();
 	}
 
-}
+};
