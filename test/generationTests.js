@@ -22,9 +22,9 @@ module.exports = {
 		test.done();
 	},
 
-	getColor_colorMaxHit_changesOffsetandSplitResetsColor: function(test) {
-		var initial = this.colgen.getSavedValues();
-		this.colgen.setSavedValues({'color': 330, 'offset': 0, 'split': 30, 'minSplit':3})
+	getColor_colorMaxHitForSplit_changesOffsetandSplitResetsColor: function(test) {
+		var initial = {'color': 330, 'offset': 0, 'split': 15, 'minSplit':3}; //15 tests minimum large split
+		this.colgen.setSavedValues(initial)
 		this.colgen.getColor();
 		var resulting = this.colgen.getSavedValues();
 		test.equal(initial['split']/2, resulting['offset'], 
@@ -33,12 +33,42 @@ module.exports = {
 			'The split should be reduced')
 		test.equal(initial['minSplit'], resulting['minSplit'], 
 			'The minimum split should not be affected')
-		test.equal(initial['color'], resulting['color'], 
-			'The color should return to inital base color')
+		test.equal(0, resulting['color'], 
+			'The color should return to base color')
 		test.done();
 	},
 
-	
+	getColor_colorMaxHitWithSmallSplit_changesOffsetandResetsColor: function(test) {
+		var initial = {'color': 330, 'offset': 0, 'split': 7.5, 'minSplit':3}
+		this.colgen.setSavedValues(initial)
+		this.colgen.getColor();
+		var resulting = this.colgen.getSavedValues();
+		test.equal(initial['split'] * 2, resulting['offset'], 
+			'The offset should adjust to reflect already assigned colors')
+		test.equal(initial['split'], resulting['split'], 
+			'The split should be reduced')
+		test.equal(initial['minSplit'], resulting['minSplit'], 
+			'The minimum split should not be affected')
+		test.equal(0, resulting['color'], 
+			'The color should return to base color')
+		test.done();
+	},
+
+	getColor_colorMaxHitWithMinimumSplit_resetsToInitialSettings: function(test) {
+		var initial = {'color': 330, 'offset': 15, 'split': 7.5, 'minSplit':7}
+		this.colgen.setSavedValues(initial)
+		this.colgen.getColor();
+		var resulting = this.colgen.getSavedValues();
+		test.equal(0, resulting['offset'], 
+			'The offset should be 0')
+		test.equal(30, resulting['split'], 
+			'The split should be the color offset')
+		test.equal(initial['minSplit'], resulting['minSplit'], 
+			'The minimum split should not be affected')
+		test.equal(0, resulting['color'], 
+			'The color should return to base color')
+		test.done();
+	},
 
 	getColor_multipleWraparounds_returnDifferentColors: function(test) {
 		var colors = [];

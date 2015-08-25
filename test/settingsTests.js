@@ -41,7 +41,7 @@ module.exports = {
 	},
 
 	setSavedValues_offsetToHigh_modsByColorOffset: function(test) {
-		this.colgen.setSavedValues({'color': 0, 'offset': 31, 'split': 30, 'minSplit':-1});
+		this.colgen.setSavedValues({'color': 0, 'offset': 31, 'split': 30, 'minSplit':3});
 		test.equal(this.colgen.getSavedValues().offset, 1, 'The offset should be 1');
 		test.done()
 	},
@@ -54,9 +54,17 @@ module.exports = {
 		test.done()
 	},
 
-	setSavedValues_colorToLarge_colorWrapsAroundThenSetToClosestMulitiple: function(test) {
+	setSavedValues_maximumColor_maximumColorSet: function(test) {
+		this.colgen.setSavedValues({'color': 330, 'offset': 0, 'split': 30, 'minSplit':3});
+		test.equal(this.colgen.getSavedValues().color, 330, 'The color should be 330');
 		this.colgen.setSavedValues({'color': 340, 'offset': 0, 'split': 30, 'minSplit':3});
-		test.equal(this.colgen.getSavedValues().color, 0, 'The color should be 0');
+		test.equal(this.colgen.getSavedValues().color, 330, 'The color should be 330');
+		test.done()
+	},
+
+	setSavedValues_colorToLarge_colorWrapsAroundThenSetToClosestMulitiple: function(test) {
+		this.colgen.setSavedValues({'color': 370, 'offset': 0, 'split': 30, 'minSplit':3});
+		test.equal(this.colgen.getSavedValues().color, 30, 'The color should be 30');
 		this.colgen.setSavedValues({'color': 350, 'offset': 0, 'split': 30, 'minSplit':3});
 		test.equal(this.colgen.getSavedValues().color, 30, 'The color should be 30');
 		test.done()

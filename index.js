@@ -30,7 +30,10 @@ exports.setSavedValues = function (dict) {
 		dict.color < 0 || dict.offset < 0 || dict.split < 0) {
 		throw 'Invalid parameter value';
 	}
-	color = Math.round((dict.color % maxColor) / nextColorOffset) * nextColorOffset;
+	color = Math.round(dict.color/ nextColorOffset) * nextColorOffset;
+	if (color > 330) {
+		color %= 330;
+	}
 	offset = dict.offset % nextColorOffset;
 	exports.setMinimumDifference(dict.minSplit);
 	if (dict.split < minSplit || dict.split > nextColorOffset) {
